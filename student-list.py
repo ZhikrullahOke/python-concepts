@@ -20,7 +20,7 @@ class StudentList:
             while (len(self.__studentList) < self.__no):
                 self.__name = input("Enter student name {}: ".format(self.__count))
                 if self.__name in self.__studentList:
-                    print("Name already exist. Please add another name not in the list")
+                    print("Name already exist. Please add another name not in the list \n!!!!See list Below!!!!")
                     print(self.__studentList)
                     continue
                 elif (self.__no == 0):
