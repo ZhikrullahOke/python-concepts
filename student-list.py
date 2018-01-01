@@ -10,7 +10,6 @@ class StudentList:
         __no = 0
         __name = None
         __count = 1
-        __age = 0
 
         def __init__(self):
             pass
@@ -20,12 +19,17 @@ class StudentList:
 
             while (len(self.__studentList) < self.__no):
                 self.__name = input("Enter student name {}: ".format(self.__count))
-                self.__studentList.append(self.__name)
+                if self.__name in self.__studentList:
+                    print("Name already exist. Please add another name not in the list")
+                    print(self.__studentList)
+                    continue
+                elif (self.__no == 0):
+                    print("No Student invited")
+                else:
+                    self.__studentList.append(self.__name)
+
                 self.__count += 1
-            if (self.__no == 0):
-                print("No Student invited")
-            else:
-               pass
+
             print("\n:::List of Invited student:::")
             for x in self.__studentList:
                 print(x)
