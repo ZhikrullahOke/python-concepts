@@ -5,11 +5,14 @@ import datetime
 
 
 class StudentList:
+
+
     try:
         __studentList = []
         __no = 0
         __name = None
         __count = 1
+        finename = None
 
         def __init__(self):
             pass
@@ -34,8 +37,15 @@ class StudentList:
             for x in self.__studentList:
                 print(x)
 
+        def savelisttofile(self):
+            with open("student.csv","w") as file:
+                for x in self.__studentList:
+                    file.write(x)
 
-
+        def readfile(self,filename):
+            with open(filename,"r") as file:
+                for x in file:
+                    print(x)
     except:
         error = sys.exc_info()[0]
         print("Error: {}".format(error))
@@ -44,10 +54,14 @@ class StudentList:
 student = StudentList()
 
 try:
-    no_student = int(input("Enter number of student invited: "))
-    student.eligiblelist(no_student)
+    num_student = int(input("Enter number of student invited: "))
+    student.eligiblelist(num_student)
+    student.savelisttofile()
+    student.readfile('student.csv')
+
 except ValueError:
     print("Invalid value entered\nPlease enter the correct value")
+
 except:
     error = sys.exc_info()[0]
     print("Error Detected: {}".format(error))
