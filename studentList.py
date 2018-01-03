@@ -1,16 +1,17 @@
-import random
 import sys
 import os
-import datetime
-from Person import *
 
-class StudentList:
+class StudentListClass:
     try:
         __studentList = []
         __no = 0
         __name = None
         __count = 1
 
+
+
+        def get_studentlist(self):
+            return self.__studentList
 
         def eligiblelist(self,no):
             self.__no = no
@@ -40,6 +41,7 @@ class StudentList:
         print("Error: {}".format(error))
 
 #creating new object called student
+'''
 student = StudentList()
 
 try:
@@ -49,4 +51,4 @@ except ValueError:
     print("Invalid value entered\nPlease enter the correct value")
 except:
     error = sys.exc_info()[0]
-    print("Error Detected: {}".format(error))
+    print("Error Detected: {}".format(error))'''
